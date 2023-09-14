@@ -1,0 +1,59 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+div {
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  color: #062b40;
+}
+
+h2::before,
+h2::after {
+  content: "";
+  width: 40vw;
+  height: 2px;
+  background-color: #5fc4d1;
+  border-radius: 50;
+  margin: 5px;
+  display: inline-block;
+}
+
+.bar {
+  display: none;
+  position: fixed;
+  width: 100%;
+  background-color: #addee4;
+}
+
+.bar img {
+  position: relative;
+  width: 5vw;
+  float: right;
+  margin: 5px;
+}
+
+button {
+  position: relative;
+  border-radius: 50%;
+  width: 5vh;
+  height: 5vh;
+  margin: 5px;
+  border: none;
+}
+
+button div {
+  /* position: relative;
+  width: 5vw;
+  height: 1vw;
+  background-color: #062b40;
+  margin: 1vw; */
+}
+
+.list {
+  position: relative;
+}
