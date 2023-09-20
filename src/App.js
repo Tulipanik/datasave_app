@@ -1,103 +1,37 @@
 import styles from "./App.module.css";
-import { Bar } from "./Bar.js";
 import textLogo from "./images/text.png";
+import { Bar } from "./Bar.js";
+import { SquareContent, DescriptionContent, Header } from "./Content.js";
 
 function App() {
   return (
     <div className={styles.App}>
       <Bar />
       <Start />
-      <GetDescription />
-      <GetHeader title="O nas" />
-      <GetHeader title="Oferta" />
-      <SquareMenu />
+      <DescriptionContent />
+      <SquareContent />
       <Footer />
     </div>
   );
 }
 
 const Start = () => {
-  const startQuote = "Witamy w serwisie sprzętu biurowego";
+  const startQuote = "Witamy w serwisie <br /> sprzętu biurowego";
   return (
-    <div>
-      {startQuote}
-      <img src={textLogo} alt="text" />
-    </div>
-  );
-};
-
-const GetDescription = () => {
-  const descr =
-    "Zajmujemy się profesjonalną obsługą serwisową urządzeń biurowych. Mamy 22-letnie doświadczenie w dziedzinie serwisu kserokopiarek, drukarek, oraz sieci komputerowych. Wykonujemy instalacje kamer monitoringu wizyjnego, oraz kontroli dostępu.";
-  return <p>{descr}</p>;
-};
-
-const GetHeader = (props) => {
-  return <h2>{props.title}</h2>;
-};
-
-const SquareMenu = () => {
-  const listOne = [
-    "kserokopiarki",
-    "drukarki (laserowe)",
-    "telefaksy",
-    "centrale telefoniczne",
-  ];
-  const listTwo = [
-    "konserwacja i instalacja systemów operacyjnych",
-    "konserwacja sprzętu komputerowego",
-    "kopie zapasowe danych",
-    "ogólna pomoc w zakresie obsługi komputera",
-  ];
-  const listThree = [
-    "konserwacja",
-    "modernizacja",
-    "projektowanie i budowa nowych sieci",
-  ];
-  const listFour = [
-    "konserwacja kamer",
-    "bieżące naprawy systemów",
-    "rozbudowa istniejących systemów",
-    "projektowanie i budowa nowych systemów",
-  ];
-  return (
-    <div>
-      <Square
-        begin="Sprzedaż, konserwacja, naprawa oraz instalacja sprzętu biurowego"
-        list={listOne}
-        end="Zajmujemy się sprzętem marek:
-Konixa minolta, Sharp, Ricoh, Panasonic, Hewlett-Packard oraz Canon"
-      />
-      <Square
-        begin="Sprzedaż, konserwacja oraz instalacja sprzętu klasy PC"
-        list={listTwo}
-        end=""
-      />
-      <Square begin="Obsługa sieci komputerowych" list={listThree} end="" />
-      <Square begin="Systemy monitoringu" list={listFour} end="" />
-    </div>
-  );
-};
-
-const Square = (props) => {
-  const arr = props.list;
-  return (
-    <div>
-      {props.begin}
-      <ul>
-        {arr.map((val) => {
-          return <li>{val}</li>;
-        })}
-      </ul>
-      {props.end}
+    <div className={styles.startBackground}>
+      <div className={styles.start}>
+        <div className={styles.background}></div>
+        <h1 dangerouslySetInnerHTML={{ __html: startQuote }}></h1>
+        <img src={textLogo} alt="text" />
+      </div>
     </div>
   );
 };
 
 const Footer = () => {
   return (
-    <div>
-      <GetHeader title="Skontaktuj się z nami" />
+    <div className={styles.footer}>
+      <Header title="Skontaktuj się z nami" />
       <Address />
       <Hours />
     </div>

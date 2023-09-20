@@ -7,6 +7,7 @@ export const Bar = () => {
 
   const dropdownList = () => {
     setShowDropdown(!showDropdown);
+    console.log(showDropdown);
   };
   return (
     <div>
@@ -16,7 +17,13 @@ export const Bar = () => {
         </button>
         <img src={logo} alt="logo" />
       </div>
-      <div>{showDropdown ? <DropdownList /> : ""}</div>
+      <div>
+        {showDropdown ? (
+          <DropdownList />
+        ) : (
+          <div style={{ display: "none" }}></div>
+        )}
+      </div>
     </div>
   );
 };
@@ -24,9 +31,9 @@ export const Bar = () => {
 const DropdownButton = (props) => {
   return (
     <div>
-      <div></div>
-      <div></div>
-      <div></div>
+      <div className={styles.strip}></div>
+      <div className={styles.strip}></div>
+      <div className={styles.strip}></div>
     </div>
   );
 };
@@ -34,9 +41,9 @@ const DropdownButton = (props) => {
 const DropdownList = () => {
   const elem = ["Start", "O nas", "Oferta", "Kontakt"];
   return (
-    <ul className={styles.list}>
-      {elem.map((value) => {
-        return <li>{value}</li>;
+    <ul className={styles.dropdown}>
+      {elem.map((value, key) => {
+        return <li key={key}>{value}</li>;
       })}
     </ul>
   );
