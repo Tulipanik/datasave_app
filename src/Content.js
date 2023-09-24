@@ -1,14 +1,23 @@
 import styles from "./App.module.css";
+import { useEffect, useRef } from "react";
 
 export const Header = (props) => {
   return <h2>{props.title}</h2>;
 };
 
 export const DescriptionContent = () => {
+  const headerRef = useRef(null);
+  useEffect(() => {
+    const width = headerRef.current.getBoundingClientRect().width;
+    console.log(width);
+  });
+
   return (
-    <div>
+    <div ref={headerRef}>
       <Header title="O nas" />
-      <Description />
+      <div className={styles.container}>
+        <Description />
+      </div>
     </div>
   );
 };
@@ -16,7 +25,7 @@ export const DescriptionContent = () => {
 const Description = () => {
   const descr =
     "Zajmujemy się profesjonalną obsługą serwisową urządzeń biurowych. Mamy 22-letnie doświadczenie w dziedzinie serwisu kserokopiarek, drukarek, oraz sieci komputerowych. Wykonujemy instalacje kamer monitoringu wizyjnego, oraz kontroli dostępu.";
-  return <p>{descr}</p>;
+  return <p className={styles.descr}>{descr}</p>;
 };
 
 export const SquareContent = () => {
