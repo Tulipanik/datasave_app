@@ -1,19 +1,20 @@
-import styles from "./App.module.css";
+import styles from "./assets/Content.module.css";
 import { useEffect, useRef } from "react";
 
 export const Header = (props) => {
-  return <h2>{props.title}</h2>;
-};
-
-export const DescriptionContent = () => {
   const headerRef = useRef(null);
   useEffect(() => {
     const width = headerRef.current.getBoundingClientRect().width;
-    console.log(width);
+    const header = document.querySelector("h2");
+    // const beforeElem = window.getComputedStyle(header, "::before");
+    // beforeElem.setProperty("width", "calc((100vw - " + width + "px) / 2)");
   });
+  return <h2 ref={headerRef}>{props.title}</h2>;
+};
 
+export const DescriptionContent = () => {
   return (
-    <div ref={headerRef}>
+    <div>
       <Header title="O nas" />
       <div className={styles.container}>
         <Description />

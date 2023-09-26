@@ -1,6 +1,6 @@
 import { useState } from "react";
 import logo from "./images/logo.png";
-import styles from "./App.module.css";
+import styles from "./assets/Bar.module.css";
 
 export const Bar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
