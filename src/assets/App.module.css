@@ -15,24 +15,8 @@ div {
   padding: 0;
 }
 
-h2 {
-  color: #062b40;
-  font-size: 4rem;
-}
-
 p {
   font-size: 1.25rem;
-}
-
-h2::before,
-h2::after {
-  content: "";
-  width: 20vw;
-  height: 2px;
-  background-color: #5fc4d1;
-  border-radius: 50;
-  margin: 5px;
-  display: inline-block;
 }
 
 .startBackground {
@@ -80,4 +64,18 @@ h2::after {
 .descr {
   width: 70%;
   text-align: center;
+}
+
+@media screen and (max-width: 992px) {
+  .start img {
+    width: 70vw;
+  }
+
+  .start h1 {
+    font-size: 4rem;
+  }
+
+  p {
+    font-size: 1.5rem;
+  }
 }

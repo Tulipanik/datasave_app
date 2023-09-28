@@ -1,9 +1,31 @@
+:root {
+  --page-size: 100px;
+}
+
+h2 {
+  color: #062b40;
+  font-size: 4rem;
+}
+
+h2::before,
+h2::after {
+  content: "";
+  width: var(--page-size);
+  height: 2px;
+  background-color: #5fc4d1;
+  border-radius: 50;
+  margin: 5px;
+  display: inline-block;
+}
+
 .squareContent {
   display: block;
   width: 100%;
 }
 
 .square {
+  flex-grow: 1;
+  flex-basis: 200;
   vertical-align: top;
   position: relative;
   display: inline-block;
@@ -27,6 +49,7 @@
 
 .container {
   display: flex;
+  flex-wrap: wrap;
   width: 100%;
   flex-direction: column;
   justify-content: center;
@@ -35,4 +58,14 @@
 .descr {
   width: 70%;
   text-align: center;
+}
+
+@media screen and (max-width: 992px) {
+  .square {
+    width: 40%;
+    margin: 20px;
+  }
+
+  .square p {
+  }
 }

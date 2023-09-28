@@ -17,12 +17,12 @@
   grid-column: 2;
 }
 
-button {
+.button {
   position: relative;
-  display: inline;
+  display: none;
   border-radius: 50%;
-  width: 4vw;
-  height: 4vw;
+  width: 9vw;
+  height: 7vw;
   margin: 5px;
   padding: 0;
   border: none;
@@ -31,25 +31,98 @@ button {
   background-color: transparent;
 }
 
-button div {
+.button div {
+  top: -20;
   position: relative;
-  width: 30%;
-  height: 50%;
-  margin: 5px;
+  width: 100%;
+  height: 40%;
 }
 
 .strip {
   position: relative;
-  width: 200%;
+  width: 100%;
   height: 20%;
+  margin-top: 10px;
   background-color: #062b40;
-  margin: 6px;
   border-radius: 10px;
+  top: 0;
+}
+
+.strip1 {
+  position: relative;
+  width: 100%;
+  height: 20%;
+  margin-top: 0;
+  background-color: #062b40;
+  border-radius: 10px;
+  top: 0;
 }
 
 .dropdown {
-  background-color: white;
+  display: inline-block;
   position: fixed;
-  top: 10vh;
+  top: 0vh;
   z-index: 2;
+}
+
+.dropdown {
+  margin: 2vh;
+  padding: 0;
+}
+
+.dropdown li {
+  display: inline-block;
+  top: 0vh;
+  margin: 0 10px 10px 10px;
+  padding: 0 2px 2px 2px;
+}
+
+.dropdown li::after {
+  display: block;
+  position: relative;
+  content: "";
+  background-color: #062b40;
+  top: 0;
+  width: 0;
+  height: 2px;
+  border-radius: 2px;
+  transition: width 0.0002s ease-out;
+}
+
+.dropdown li:hover::after {
+  animation-name: onHover;
+  animation-duration: 2s;
+}
+
+@keyframes onHover {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+a {
+  font-size: 2rem;
+  color: #062b40;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 992px) {
+  .bar img {
+    width: 11vw;
+    right: 20px;
+  }
+  .strip {
+    height: 30%;
+  }
+
+  .button {
+    display: block;
+  }
+
+  .dropdown {
+    display: none;
+  }
 }

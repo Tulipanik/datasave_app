@@ -66,6 +66,20 @@ form div input {
   color: white;
 }
 
+form:nth-child(2) {
+  display: inline;
+  width: 30%;
+}
+
+form:nth-child(3) {
+  display: inline;
+  width: 70%;
+}
+
 .copyright {
-  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  font-size: 1rem;
+  padding: 2px;
+  color: #285b78;
 }

@@ -1,21 +1,28 @@
 import styles from "./assets/Content.module.css";
-import { useEffect, useRef } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 export const Header = (props) => {
-  const headerRef = useRef(null);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  const handleResize = useCallback(() => {
+    setWindowWidth(window.innerWidth);
+    const root = document.querySelector(":root");
+    root.style.setProperty("--page-size", windowWidth + "px");
+  }, [windowWidth]);
+
   useEffect(() => {
-    const width = headerRef.current.getBoundingClientRect().width;
-    const header = document.querySelector("h2");
-    // const beforeElem = window.getComputedStyle(header, "::before");
-    // beforeElem.setProperty("width", "calc((100vw - " + width + "px) / 2)");
-  });
-  return <h2 ref={headerRef}>{props.title}</h2>;
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [handleResize]);
+  return <h2>{props.title}</h2>;
 };
 
 export const DescriptionContent = () => {
   return (
     <div>
-      <Header title="O nas" />
+      <Header id="oNas" title="O nas" />
       <div className={styles.container}>
         <Description />
       </div>
@@ -55,20 +62,22 @@ export const SquareContent = () => {
   ];
   return (
     <div className={styles.squareContent}>
-      <Header title="Oferta" />
-      <Square
-        begin="Sprzedaż, konserwacja, naprawa oraz instalacja sprzętu biurowego"
-        list={listOne}
-        end="Zajmujemy się sprzętem marek:
+      <Header id="oferta" title="Oferta" />
+      <div className={styles.container}>
+        <Square
+          begin="Sprzedaż, konserwacja, naprawa oraz instalacja sprzętu biurowego"
+          list={listOne}
+          end="Zajmujemy się sprzętem marek:
   Konixa minolta, Sharp, Ricoh, Panasonic, Hewlett-Packard oraz Canon"
-      />
-      <Square
-        begin="Sprzedaż, konserwacja oraz instalacja sprzętu klasy PC"
-        list={listTwo}
-        end=""
-      />
-      <Square begin="Obsługa sieci komputerowych" list={listThree} end="" />
-      <Square begin="Systemy monitoringu" list={listFour} end="" />
+        />
+        <Square
+          begin="Sprzedaż, konserwacja oraz instalacja sprzętu klasy PC"
+          list={listTwo}
+          end=""
+        />
+        <Square begin="Obsługa sieci komputerowych" list={listThree} end="" />
+        <Square begin="Systemy monitoringu" list={listFour} end="" />
+      </div>
     </div>
   );
 };
