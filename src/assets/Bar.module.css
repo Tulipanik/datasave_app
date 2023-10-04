@@ -1,5 +1,6 @@
 .bar {
-  z-index: 2;
+  z-index: 3;
+  height: 7vw;
   position: fixed;
   width: 100%;
   background-color: #addee4;
@@ -10,8 +11,8 @@
 }
 
 .bar img {
-  position: relative;
-  width: 5vw;
+  position: absolute;
+  height: 90%;
   margin: 5px;
   display: inline;
   grid-column: 2;
@@ -50,7 +51,7 @@
 
 .strip1 {
   position: relative;
-  width: 100%;
+  width: 150%;
   height: 20%;
   margin-top: 0;
   background-color: #062b40;
@@ -61,13 +62,13 @@
 .dropdown {
   display: inline-block;
   position: fixed;
-  top: 0vh;
-  z-index: 2;
-}
-
-.dropdown {
-  margin: 2vh;
+  top: 1vh;
+  width: 30vw;
+  z-index: 3;
+  margin: 1vh;
   padding: 0;
+  border-radius: 3px;
+  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
 }
 
 .dropdown li {
@@ -110,6 +111,9 @@ a {
 }
 
 @media screen and (max-width: 768px) {
+  .bar {
+    height: 10vw;
+  }
   .bar img {
     width: 11vw;
     right: 20px;
@@ -123,7 +127,13 @@ a {
   }
 
   .dropdown {
-    display: none;
+    top: 10vw;
+    display: block;
+    background-color: white;
+  }
+
+  .dropdown li {
+    display: block;
   }
 }
 

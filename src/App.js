@@ -19,7 +19,7 @@ function App() {
 const Start = () => {
   const startQuote = "Witamy w serwisie <br /> sprzętu biurowego";
   return (
-    <div className={styles.startBackground}>
+    <div id="start" className={styles.startBackground}>
       <div className={styles.start}>
         <div className={styles.background}></div>
         <h1 dangerouslySetInnerHTML={{ __html: startQuote }}></h1>

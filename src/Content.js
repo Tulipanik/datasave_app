@@ -1,33 +1,10 @@
 import styles from "./assets/Content.module.css";
-import { useCallback, useEffect, useState } from "react";
 
 export const Header = (props) => {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
-  const handleResize = useCallback(() => {
-    setWindowWidth(window.innerWidth);
-    const span = document.getElementById(props.id);
-    const spanSize = span.offsetWidth;
-
-    console.log(windowWidth - spanSize);
-    const root = document.documentElement;
-    console.log(`--${props.id}`);
-    root.style.setProperty(
-      `--${props.id}`,
-      Math.max(window.innerWidth - spanSize - 10) / 2 + "px"
-    );
-  }, [props.id]);
-
-  useEffect(() => {
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, [handleResize]);
   return (
-    <div>
+    <h2>
       <span id={props.id}>{props.title}</span>
-    </div>
+    </h2>
   );
 };
 

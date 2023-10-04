@@ -4,12 +4,16 @@
   height: 120%;
 }
 
-.footer span {
+.footer h2 {
   color: white;
   font-size: 3.5rem;
 }
 
-.footerContainer {
+.footer h2 span {
+  background-color: #062b40;
+}
+
+.footer .footerContainer {
   padding: 20px;
   display: grid;
   grid-template-columns: 30% 70%;

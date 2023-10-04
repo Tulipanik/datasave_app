@@ -7,7 +7,6 @@ export const Bar = () => {
 
   const dropdownList = () => {
     setShowDropdown(!showDropdown);
-    console.log(showDropdown);
   };
   return (
     <div>

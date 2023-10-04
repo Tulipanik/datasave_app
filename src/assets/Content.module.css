@@ -3,19 +3,30 @@
   --oNas: 80vh;
 }
 
-span {
+h2 {
   color: #062b40;
   font-size: 4rem;
   display: inline-block;
+  position: relative;
+  display: flex;
+  justify-content: center;
 }
 
-span::before,
-span::after {
+span {
+  background-color: white;
+  padding: 10px;
+  z-index: 2;
+}
+
+h2::before {
+  position: absolute;
+  top: 50%;
+  margin: auto;
   content: "";
   height: 2px;
-  width: var("--size");
+  width: 95vw;
   background-color: #5fc4d1;
-  border-radius: 50;
+  border-radius: 50px;
   margin: 5px;
   display: inline-block;
   transition: width 0.3s ease;
@@ -27,8 +38,6 @@ span::after {
 }
 
 .square {
-  flex-grow: 1;
-  flex-basis: 20%;
   vertical-align: top;
   position: relative;
   display: inline-block;
@@ -53,7 +62,6 @@ span::after {
 
 .container {
   display: flex;
-  flex-wrap: wrap;
   width: 100%;
   flex-direction: row;
   justify-content: center;
@@ -68,10 +76,6 @@ span::after {
   .square {
     width: 40%;
     margin: 20px;
-  }
-  .container {
-    flex-basis: 50%;
-    flex-wrap: wrap;
   }
 }
 
