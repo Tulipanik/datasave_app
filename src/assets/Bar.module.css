@@ -109,7 +109,7 @@ a {
   text-decoration: none;
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 768px) {
   .bar img {
     width: 11vw;
     right: 20px;
@@ -124,5 +124,16 @@ a {
 
   .dropdown {
     display: none;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .bar img {
+    width: 10vw;
+  }
+
+  .strip {
+    width: 70%;
+    margin-top: 5px;
   }
 }

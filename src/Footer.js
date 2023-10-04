@@ -4,7 +4,7 @@ import styles from "./assets/Footer.module.css";
 export const Footer = () => {
   return (
     <div className={styles.footer}>
-      <Header title="Skontaktuj się z nami" />
+      <Header id="kontakt" title="Skontaktuj się z nami" />
       <div className={styles.footerContainer}>
         <div className={styles.contact}>
           <Address />
@@ -21,14 +21,26 @@ const Address = () => {
   const addr =
     "Adres serwisu: \n Ul. Kwaitowa 24 \n 06-400 Ciechanów \n tel. 604485 827";
 
-  return <p>{addr}</p>;
+  return (
+    <div className={styles.address}>
+      {addr.split("\n").map((line, key) => {
+        return <p key={key}>{line}</p>;
+      })}
+    </div>
+  );
 };
 
 const Hours = () => {
   const hours =
     "Godziny pracy: \n 8:00 - 16:00 \n W razie poważnych awarii godziny serwisu są ustalane indywidualnie.";
 
-  return <p>{hours}</p>;
+  return (
+    <div className={styles.hours}>
+      {hours.split("\n").map((line, key) => {
+        return <p key={key}>{line}</p>;
+      })}
+    </div>
+  );
 };
 
 const Form = () => {

@@ -6,9 +6,17 @@ export const Header = (props) => {
 
   const handleResize = useCallback(() => {
     setWindowWidth(window.innerWidth);
-    const root = document.querySelector(":root");
-    root.style.setProperty("--page-size", windowWidth + "px");
-  }, [windowWidth]);
+    const span = document.getElementById(props.id);
+    const spanSize = span.offsetWidth;
+
+    console.log(windowWidth - spanSize);
+    const root = document.documentElement;
+    console.log(`--${props.id}`);
+    root.style.setProperty(
+      `--${props.id}`,
+      Math.max(window.innerWidth - spanSize - 10) / 2 + "px"
+    );
+  }, [props.id]);
 
   useEffect(() => {
     window.addEventListener("resize", handleResize);
@@ -16,7 +24,11 @@ export const Header = (props) => {
       window.removeEventListener("resize", handleResize);
     };
   }, [handleResize]);
-  return <h2>{props.title}</h2>;
+  return (
+    <div>
+      <span id={props.id}>{props.title}</span>
+    </div>
+  );
 };
 
 export const DescriptionContent = () => {

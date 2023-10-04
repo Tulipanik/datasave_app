@@ -1,21 +1,24 @@
 :root {
-  --page-size: 100px;
+  --size: 90vw;
+  --oNas: 80vh;
 }
 
-h2 {
+span {
   color: #062b40;
   font-size: 4rem;
+  display: inline-block;
 }
 
-h2::before,
-h2::after {
+span::before,
+span::after {
   content: "";
-  width: var(--page-size);
   height: 2px;
+  width: var("--size");
   background-color: #5fc4d1;
   border-radius: 50;
   margin: 5px;
   display: inline-block;
+  transition: width 0.3s ease;
 }
 
 .squareContent {
@@ -25,7 +28,7 @@ h2::after {
 
 .square {
   flex-grow: 1;
-  flex-basis: 200;
+  flex-basis: 20%;
   vertical-align: top;
   position: relative;
   display: inline-block;
@@ -40,18 +43,19 @@ h2::after {
 }
 
 .square p {
+  font-size: 1rem;
   margin-left: 10px;
 }
 
 .end {
-  font-size: 0.9375rem;
+  font-size: 0.5rem;
 }
 
 .container {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
 }
@@ -60,12 +64,33 @@ h2::after {
   text-align: center;
 }
 
-@media screen and (max-width: 992px) {
+@media (max-width: 768px) {
   .square {
     width: 40%;
     margin: 20px;
   }
+  .container {
+    flex-basis: 50%;
+    flex-wrap: wrap;
+  }
+}
 
-  .square p {
+@media (max-width: 480px) {
+  .container {
+    flex-direction: column;
+  }
+  .square {
+    flex-basis: 48%;
+    width: 95%;
+    height: 300px;
+  }
+
+  span {
+    font-size: 2rem;
+  }
+
+  .descr {
+    font-size: 1rem;
+    width: 90vw;
   }
 }
